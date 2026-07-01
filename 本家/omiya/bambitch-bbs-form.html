@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>BAMBITCH大宮本店ご来店予告掲示板</title>
+<meta name="viewport" content="width=960, maximum-scale=1.0, minimum-scale=0.27">
+<style>
+body{
+  background:#BA55D3;
+  color:#FFFFFF;
+  font-family:"MS UI Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+}
+a{color:#FFFFFF;}
+select{
+  background-color:#8B0000;
+  font-size:18px;
+  color:#FFFFFF;
+}
+input{
+  background-color:#ffffff;
+  font-size:16px;
+  color:#606060;
+}
+textarea{
+  background-color:#ffffff;
+  font-size:14px;
+  color:#606060;
+}
+table{
+  margin-left:40px;
+}
+td{
+  padding:4px;
+}
+.notice{
+  margin-left:40px;
+}
+.small{
+  color:#555555;
+}
+button{
+  background:#8B0000;
+  color:#fff;
+  font-size:18px;
+  padding:8px 28px;
+  border:2px solid #fff;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<center>
+  <a href="./★変態バ―・バンビッチ大宮本店★.html">
+    <img src="https://bambitch.com/cgi-bin/banner.png" width="400" height="93" alt="BAMBITCH">
+  </a>
+</center>
+
+<br>
+
+<center>
+  <a href="./snackdokudoku.html">
+    <img src="https://bambitch.com/cgi-bin/doku-banner-bbs.png" width="400" height="93" alt="">
+  </a>
+</center>
+
+<ul>
+  <h3>BAMBITCH大宮　ご来店予告掲示板</h3>
+  <li>ご来店予告の書き込みでドリンク1杯サービスです♪</li>
+</ul>
+
+<form id="bbsForm" action="https://bambitch.com/cgi-bin/imgboard.cgi" method="POST" enctype="multipart/form-data" accept-charset="Shift_JIS">
+  <input type="hidden" name="bbsaction" value="post">
+  <input type="hidden" name="page" value="">
+  <input type="hidden" name="view_mode" value="as_cgi_defined">
+  <input type="hidden" name="form_mode" value="">
+  <input type="hidden" name="middle_html_disp" value="">
+  <input type="hidden" name="blood" value="">
+  <input type="hidden" name="parent" value="">
+  <input type="hidden" name="prebbsaction" value="">
+  <input type="hidden" name="amode" value="">
+  <input type="hidden" name="p1" value="">
+  <input type="hidden" name="p2" value="">
+  <input type="hidden" name="target" value="">
+  <input type="hidden" name="target_no" value="">
+  <input type="hidden" name="sf" value="高級">
+  <input type="hidden" name="onetime_token" id="onetime_token" value="">
+
+  <ul>
+    <table border="0" cellspacing="1" cellpadding="0">
+      <tr bgcolor="#FFC0CB">
+        <td align="right"><font color="#810808">おなまえ： </font></td>
+        <td colspan="2">
+          <input type="text" name="name" size="30" maxlength="40">
+          <font class="small">*必要</font>
+        </td>
+      </tr>
+
+      <tr bgcolor="#FFC0CB">
+        <td align="right"><font color="#810808">題名： </font></td>
+        <td colspan="2">
+          <input type="text" name="subject" size="30" maxlength="60">
+          <font class="small">*必要</font>
+        </td>
+      </tr>
+
+      <tr bgcolor="#FFC0CB">
+        <td align="right"><font color="#810808">コメント： </font></td>
+        <td colspan="2">
+          <textarea name="comment" cols="60" rows="6"></textarea>
+        </td>
+      </tr>
+
+      <tr bgcolor="#FFC0CB">
+        <td align="right"><font color="#810808">画像： </font></td>
+        <td colspan="2">
+          <input type="file" name="upfile">
+        </td>
+      </tr>
+
+      <tr bgcolor="#FFC0CB">
+        <td></td>
+        <td colspan="2">
+          <button type="submit">投稿する</button>
+          <span id="status"></span>
+        </td>
+      </tr>
+    </table>
+  </ul>
+</form>
+
+<script>
+const CGI_URL = "https://bambitch.com/cgi-bin/imgboard.cgi";
+
+async function loadToken(){
+  const status = document.getElementById("status");
+  try{
+    const res = await fetch(CGI_URL, { cache: "no-store" });
+    const buffer = await res.arrayBuffer();
+    const text = new TextDecoder("shift_jis").decode(buffer);
+    const match = text.match(/name=["']onetime_token["']\s+value=["']([^"']+)["']/i);
+
+    if(match){
+      document.getElementById("onetime_token").value = match[1];
+      status.textContent = " トークン取得OK";
+    }else{
+      status.textContent = " トークン取得失敗";
+    }
+  }catch(e){
+    status.textContent = " ローカルではトークン取得できない場合があります";
+  }
+}
+
+document.getElementById("bbsForm").addEventListener("submit", function(e){
+  if(!document.getElementById("onetime_token").value){
+    e.preventDefault();
+    alert("onetime_tokenが取れていません。サーバー上に置いてから試してください。");
+  }
+});
+
+loadToken();
+</script>
+
+</body>
+</html>

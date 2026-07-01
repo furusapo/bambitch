@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAMBITCH Zakk | HENTAI BAR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050006;
+      --pink: #ff149d;
+      --pink2: #ff4fc3;
+      --gold: #ffd166;
+      --text: #fff4fb;
+      --muted: #d9a9ca;
+      --border: rgba(255, 20, 157, .7);
+      --panel: rgba(10, 0, 12, .78);
+      --glow-pink: 0 0 8px #ff149d, 0 0 22px #ff149d, 0 0 44px rgba(255,20,157,.75);
+      --glow-gold: 0 0 8px #ffd166, 0 0 20px rgba(255,209,102,.8);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,20,157,.25), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(255,209,102,.16), transparent 28%),
+        linear-gradient(180deg, #08000a 0%, #050006 45%, #010001 100%);
+      color: var(--text);
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      opacity: .25;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 72px;
+      padding: 0 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(5,0,6,.78);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,20,157,.45);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      letter-spacing: .08em;
+    }
+
+    .logo-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--pink);
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+      box-shadow: var(--glow-pink);
+      font-size: 22px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--gold);
+      text-shadow: var(--glow-gold);
+    }
+
+    .logo-text span {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+    }
+
+
+    .header-logo img {
+      display: block;
+      height: 54px;
+      width: auto;
+      filter:
+        drop-shadow(0 0 8px rgba(255,20,157,.95))
+        drop-shadow(0 0 18px rgba(255,209,102,.55));
+    }
+
+    @media (max-width: 900px) {
+      .header-logo img {
+        height: 44px;
+      }
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      opacity: .9;
+    }
+
+    .nav a:hover {
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+    }
+
+    .nav .reserve {
+      padding: 12px 22px;
+      border: 1px solid var(--pink);
+      border-radius: 6px;
+      color: var(--pink2);
+      box-shadow: var(--glow-pink);
+    }
+
+    .menu {
+      display: none;
+      font-size: 34px;
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      align-items: center;
+      padding: 70px 5vw 60px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,20,157,.5);
+      background:
+        linear-gradient(90deg, rgba(5,0,6,.55), rgba(5,0,6,.18), rgba(5,0,6,.65)),
+        url("images/hero-bg.png") center top / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 70% 30%, transparent 0 22%, rgba(5,0,6,.25) 45%, rgba(5,0,6,.88) 100%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      color: var(--pink2);
+      font-size: clamp(16px, 2vw, 28px);
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-shadow: var(--glow-pink);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(58px, 10vw, 150px);
+      line-height: .84;
+      font-weight: 900;
+      letter-spacing: .03em;
+      color: var(--gold);
+      text-shadow: 
+        0 0 6px #fff,
+        0 0 16px var(--gold),
+        0 0 32px var(--pink);
+    }
+
+    .subtitle {
+      margin: 12px 0 22px;
+      font-size: clamp(22px, 4vw, 54px);
+      font-weight: 900;
+      letter-spacing: .18em;
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+    }
+
+    .lead {
+      max-width: 620px;
+      color: #fff;
+      font-size: clamp(15px, 1.6vw, 22px);
+      line-height: 1.9;
+      text-shadow: 0 0 12px #000;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 26px 0 30px;
+    }
+
+    .badge {
+      padding: 10px 16px;
+      border: 1px solid var(--pink);
+      border-radius: 999px;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .08em;
+      background: rgba(255,20,157,.08);
+      box-shadow: var(--glow-pink);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 16px 28px;
+      border: 1px solid var(--pink);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      background: rgba(10,0,12,.7);
+      box-shadow: var(--glow-pink);
+    }
+
+    .btn.gold {
+      border-color: var(--gold);
+      box-shadow: var(--glow-gold);
+    }
+
+
+    .hero-bambi {
+      position: absolute;
+      z-index: 3;
+      left: 52%;
+      top: 50%;
+      transform: translateY(-45%);
+      bottom: auto;
+      width: min(68vw, 920px);
+      max-height: 88%;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 10px rgba(255,20,157,.95))
+        drop-shadow(0 0 28px rgba(255,20,157,.75))
+        drop-shadow(0 0 46px rgba(255,209,102,.45));
+    }
+
+    .hero-inner {
+      background: rgba(5, 0, 6, .22);
+      padding: 26px;
+      border-radius: 18px;
+      backdrop-filter: blur(2px);
+    }
+
+    .section {
+      padding: 34px 5vw;
+      border-bottom: 1px solid rgba(255,20,157,.35);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .card {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: inset 0 0 22px rgba(255,20,157,.12), 0 0 24px rgba(255,20,157,.18);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px;
+    }
+
+    .about {
+      grid-column: span 4;
+      min-height: 260px;
+      background:
+        linear-gradient(90deg, rgba(5,0,6,.88), rgba(5,0,6,.45)),
+        url("images/about.png") center/cover no-repeat;
+    }
+
+    .system {
+      grid-column: span 4;
+    }
+
+    .gallery {
+      grid-column: span 4;
+    }
+
+    .access {
+      grid-column: span 4;
+      min-height: 260px;
+      background:
+        linear-gradient(90deg, rgba(5,0,6,.88), rgba(5,0,6,.35)),
+        url("images/access.png") center/cover no-repeat;
+    }
+
+    .reservation {
+      grid-column: span 8;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(5,0,6,.78), rgba(5,0,6,.45)),
+        radial-gradient(circle at 80% 50%, rgba(255,20,157,.26), transparent 34%);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      color: var(--pink2);
+      letter-spacing: .22em;
+      text-shadow: var(--glow-pink);
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .more {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 22px;
+      border: 1px solid var(--pink);
+      color: var(--pink2);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .08em;
+      box-shadow: var(--glow-pink);
+      border-radius: 5px;
+    }
+
+    .system-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .iconbox {
+      min-height: 150px;
+      padding: 18px 12px;
+      text-align: center;
+      border-right: 1px dashed rgba(255,20,157,.5);
+    }
+
+    .iconbox:last-child {
+      border-right: none;
+    }
+
+    .icon {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 34px;
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+    }
+
+    .iconbox strong {
+      display: block;
+      color: var(--pink2);
+      font-size: 13px;
+      letter-spacing: .08em;
+      margin-bottom: 8px;
+    }
+
+    .iconbox span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .photo {
+      height: 92px;
+      border: 1px solid rgba(255,20,157,.7);
+      border-radius: 6px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,20,157,.25), transparent 42%),
+        linear-gradient(135deg, #120015, #280018);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-shadow: var(--glow-gold);
+    }
+
+    .access-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      color: var(--text);
+      line-height: 1.9;
+      font-size: 14px;
+    }
+
+    .reservation h2 {
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 1;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-shadow:
+        0 0 6px #fff,
+        0 0 16px var(--gold),
+        0 0 34px var(--pink);
+    }
+
+    .reservation .card-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer {
+      padding: 28px 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(255,20,157,.45);
+    }
+
+    .sns {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      color: var(--pink2);
+      text-shadow: var(--glow-pink);
+      letter-spacing: .12em;
+    }
+
+    .sns span {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--pink);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 900px) {
+      .header {
+        height: 66px;
+        padding: 0 18px;
+      }
+
+  
+    .header-logo img {
+      display: block;
+      height: 54px;
+      width: auto;
+      filter:
+        drop-shadow(0 0 8px rgba(255,20,157,.95))
+        drop-shadow(0 0 18px rgba(255,209,102,.55));
+    }
+
+    @media (max-width: 900px) {
+      .header-logo img {
+        height: 44px;
+      }
+    }
+
+    .nav {
+        display: none;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .logo-text strong {
+        font-size: 18px;
+      }
+
+      .hero {
+        min-height: 760px;
+        padding: 72px 22px 42px;
+        background-position: center top;
+        background-size: cover;
+      }
+
+      .hero-inner {
+        max-width: 100%;
+      }
+
+      .hero-bambi {
+        left: 50%;
+        top: 58%;
+        transform: translate(-50%, -50%);
+        width: 145vw;
+        opacity: .92;
+        z-index: 1;
+      }
+
+      .hero-inner {
+        z-index: 4;
+        background: rgba(5, 0, 6, .48);
+        padding: 20px;
+      }
+
+
+      h1 {
+        font-size: 54px;
+      }
+
+      .subtitle {
+        font-size: 28px;
+      }
+
+      .lead {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .buttons {
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
+        min-width: auto;
+      }
+
+  
+    .hero-bambi {
+      position: absolute;
+      z-index: 3;
+      left: 52%;
+      top: 50%;
+      transform: translateY(-45%);
+      bottom: auto;
+      width: min(68vw, 920px);
+      max-height: 88%;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 0 10px rgba(255,20,157,.95))
+        drop-shadow(0 0 28px rgba(255,20,157,.75))
+        drop-shadow(0 0 46px rgba(255,209,102,.45));
+    }
+
+    .hero-inner {
+      background: rgba(5, 0, 6, .22);
+      padding: 26px;
+      border-radius: 18px;
+      backdrop-filter: blur(2px);
+    }
+
+    .section {
+        padding: 18px;
+      }
+
+      .grid {
+        display: block;
+      }
+
+      .card {
+        margin-bottom: 16px;
+      }
+
+      .about,
+      .system,
+      .gallery,
+      .access,
+      .reservation {
+        min-height: auto;
+      }
+
+      .card-content {
+        padding: 22px;
+      }
+
+      .system-icons {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .iconbox {
+        border-right: none;
+        border-bottom: 1px dashed rgba(255,20,157,.45);
+      }
+
+      .reservation .card-content {
+        display: block;
+      }
+
+      .reservation h2 {
+        font-size: 38px;
+      }
+
+      .footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header class="header">
+      <a href="#home" class="logo">
+        <span class="logo-mark">♥</span>
+        <span class="logo-text">
+          <strong>BAMBITCH</strong>
+          <span>HENTAI BAR / Zakk</span>
+        </span>
+      </a>
+
+      <nav class="nav">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#system">SYSTEM</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#access">ACCESS</a>
+        <a href="#contact">CONTACT</a>
+        <a class="reserve" href="#reservation">RESERVATION</a>
+      </nav>
+
+      <div class="menu">☰</div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-inner">
+          <div class="eyebrow">WELCOME TO</div>
+          <h1>BAMBITCH</h1>
+          <div class="subtitle">HENTAI BAR</div>
+          <p class="lead">
+            この地下には、頭のおかしいヤツらと<br>
+            セクシーでイカれた女たちが集まる。<br>
+            常識はゴミ箱へ。今夜は、欲望のままに楽しめ。
+          </p>
+
+          <div class="badges">
+            <span class="badge">SEXY GIRLS</span>
+            <span class="badge">CRAZY PEOPLE</span>
+            <span class="badge">HENTAI BAR</span>
+            <span class="badge">NO RULES</span>
+          </div>
+
+          <div class="buttons">
+            <a class="btn" href="#reservation">RESERVE →</a>
+            <a class="btn gold" href="#access">ACCESS →</a>
+          </div>
+        </div>
+
+        <img class="hero-bambi" src="images/bambi.svg" alt="BAMBITCH Bambi">
+      </section>
+
+      <section class="section">
+        <div class="grid">
+          <article id="about" class="card about">
+            <div class="card-content">
+              <h2>ABOUT</h2>
+              <p>
+                BAMBITCHは、変態紳士たちのための特別な地下社交場。
+                セクシーな女の子たちと、イカれた時間をお楽しみください。
+              </p>
+              <a class="more" href="#">MORE →</a>
+            </div>
+          </article>
+
+          <article id="system" class="card system">
+            <div class="card-content">
+              <h2>SYSTEM</h2>
+              <div class="system-icons">
+                <div class="iconbox">
+                  <span class="icon">🚀</span>
+                  <strong>ROCKET TOP</strong>
+                  <span>ロケットビル最上階の特別空間</span>
+                </div>
+                <div class="iconbox">
+                  <span class="icon">🍸</span>
+                  <strong>PREMIUM DRINKS</strong>
+                  <span>こだわりのカクテルとシャンパン</span>
+                </div>
+                <div class="iconbox">
+                  <span class="icon">💋</span>
+                  <strong>MUSIC & VIBES</strong>
+                  <span>DJライブと極上のサウンド</span>
+                </div>
+                <div class="iconbox">
+                  <span class="icon">💔</span>
+                  <strong>RESERVATION</strong>
+                  <span>完全予約制の特別な夜</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article id="gallery" class="card gallery">
+            <div class="card-content">
+              <h2>GALLERY</h2>
+              <div class="photos">
+                <div class="photo">ROCKET</div>
+                <div class="photo">BAMBITCH</div>
+                <div class="photo">COCKTAILS</div>
+                <div class="photo">PLAY WITH ME</div>
+              </div>
+            </div>
+          </article>
+
+          <article id="access" class="card access">
+            <div class="card-content">
+              <h2>ACCESS</h2>
+              <ul class="access-list">
+                <li>BAMBITCH Zakk</li>
+                <li>ROCKET BLDG. ROOFTOP</li>
+                <li>渋谷駅 徒歩5分</li>
+                <li>営業時間 19:00 - 05:00</li>
+              </ul>
+              <a class="more" href="#">アクセス詳細を見る →</a>
+            </div>
+          </article>
+
+          <article id="reservation" class="card reservation">
+            <div class="card-content">
+              <div>
+                <h2>RESERVATION<br>& CONTACT</h2>
+                <p>ご予約・お問い合わせはこちら</p>
+              </div>
+              <a class="btn" href="#">BOOK NOW →</a>
+            </div>
+          </article>
+        </div>
+
+        
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="logo">
+        <span class="logo-mark">♥</span>
+        <span class="logo-text">
+          <strong>BAMBITCH</strong>
+          <span>HENTAI BAR</span>
+        </span>
+      </div>
+
+      <div>© 2025 BAMBITCH Zakk. All rights reserved.</div>
+
+      <div class="sns">
+        FOLLOW US
+        <span>𝕏</span>
+        <span>◎</span>
+        <span>▶</span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

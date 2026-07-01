@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BAMBITCH Zakk | HENTAI BAR</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Noto+Sans+JP:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --pink:#ff149d;
+      --pink2:#ff4fc3;
+      --gold:#ffd166;
+      --text:#fff4fb;
+      --muted:#d9a9ca;
+      --panel:rgba(10,0,12,.78);
+      --border:rgba(255,20,157,.7);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:'Inter','Noto Sans JP',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,20,157,.25), transparent 30%),
+        linear-gradient(180deg,#08000a,#050006,#010001);
+      overflow-x:hidden;
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 5vw;
+      height:72px;
+      background:rgba(5,0,6,.78);
+      border-bottom:1px solid rgba(255,20,157,.4);
+      backdrop-filter:blur(12px);
+    }
+
+    .logo{
+      display:flex;
+      gap:10px;
+      text-decoration:none;
+      color:var(--text);
+      align-items:center;
+    }
+
+    .logo-mark{
+      width:44px;height:44px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      border:1px solid var(--pink);
+      box-shadow:0 0 20px rgba(255,20,157,.6);
+    }
+
+    .logo-text strong{color:var(--gold)}
+    .logo-text span{font-size:11px;color:var(--pink2)}
+
+    .nav{
+      display:flex;
+      gap:22px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .nav a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .nav a:hover{color:var(--pink2)}
+
+    .reserve{
+      border:1px solid var(--pink);
+      padding:10px 16px;
+      border-radius:6px;
+    }
+
+    .hero{
+      position:relative;
+      min-height:720px;
+      display:grid;
+      align-items:center;
+      padding:70px 5vw;
+      background:
+        linear-gradient(90deg,rgba(5,0,6,.6),rgba(5,0,6,.2)),
+        url("images/hero-bg.png") center/cover;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:720px;
+      padding:24px;
+      background:rgba(5,0,6,.25);
+      border-radius:16px;
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(60px,10vw,140px);
+      color:var(--gold);
+    }
+
+    .subtitle{
+      font-size:clamp(22px,4vw,48px);
+      color:var(--pink2);
+      font-weight:900;
+    }
+
+    .hero-bambi{
+      position:absolute;
+      left:52%;
+      top:50%;
+      transform:translateY(-45%);
+      width:min(68vw,900px);
+      filter:drop-shadow(0 0 30px rgba(255,20,157,.6));
+      z-index:3;
+    }
+
+    .btn{
+      display:inline-flex;
+      padding:14px 22px;
+      border:1px solid var(--pink);
+      text-decoration:none;
+      color:var(--text);
+      font-weight:900;
+      margin-right:10px;
+    }
+
+    .btn.gold{border-color:var(--gold)}
+
+    .section{padding:34px 5vw}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:20px;
+      max-width:1400px;
+      margin:0 auto;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:10px;
+    }
+
+    .card-content{padding:26px}
+
+    .about{grid-column:span 4}
+    .system{grid-column:span 4}
+    .gallery{grid-column:span 4}
+    .access{grid-column:span 4}
+    .reservation{grid-column:span 8}
+
+    h2{color:var(--pink2)}
+
+    .footer{
+      padding:24px 5vw;
+      display:flex;
+      justify-content:space-between;
+      border-top:1px solid rgba(255,20,157,.3);
+    }
+
+    @media(max-width:900px){
+      .nav{display:none}
+      .grid{display:block}
+      .card{margin-bottom:16px}
+      .hero-bambi{left:50%;width:140vw;opacity:.9}
+      .footer{flex-direction:column;text-align:center}
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <a class="logo" href="#">
+    <span class="logo-mark">♥</span>
+    <span class="logo-text">
+      <strong>BAMBITCH</strong>
+      <span>HENTAI BAR</span>
+    </span>
+  </a>
+
+  <nav class="nav">
+    <a href="#about">ABOUT</a>
+    <a href="#system">SYSTEM</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#access">ACCESS</a>
+    <a class="reserve" href="#reservation">RESERVE</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>BAMBITCH</h1>
+    <div class="subtitle">HENTAI BAR</div>
+
+    <a class="btn" href="#reservation">RESERVE</a>
+    <a class="btn gold" href="#access">ACCESS</a>
+  </div>
+
+  <img class="hero-bambi" src="images/bambi.svg" alt="">
+</section>
+
+<section class="section">
+  <div class="grid">
+
+    <article id="about" class="card about">
+      <div class="card-content">
+        <h2>ABOUT</h2>
+      </div>
+    </article>
+
+    <article id="system" class="card system">
+      <div class="card-content">
+        <h2>SYSTEM</h2>
+      </div>
+    </article>
+
+    <article id="gallery" class="card gallery">
+      <div class="card-content">
+        <h2>GALLERY</h2>
+      </div>
+    </article>
+
+    <article id="access" class="card access">
+      <div class="card-content">
+        <h2>ACCESS</h2>
+      </div>
+    </article>
+
+    <article id="reservation" class="card reservation">
+      <div class="card-content">
+        <h2>RESERVATION</h2>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div>BAMBITCH Zakk</div>
+  <div>© 2025</div>
+</footer>
+
+</body>
+</html>

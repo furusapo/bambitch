@@ -1,0 +1,131 @@
+	
+ .container{
+     box-shadow: 0px 10px 15px #999;
+     -webkit-box-shadow: 0px 10px 15px #999;
+     -moz-box-shadow: 0px 10px 15px #999;
+}
+
+
+.navbar-default {
+  background-color: #4ed6ff;
+  border-color: #fff;
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+ 
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: #ecdbff;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 18px;
+}
+.navbar-default .navbar-text {
+  color: #fff;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav > li > a {
+  color:#fff;
+  font-weight: bold;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #3dd0fc;
+  border-color: #fff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #fff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ecdbff;
+  background-color: #4ed6ff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #f4ed6ff;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  color: #ecdbff;
+  background-color: #4ed6ff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ecdbff;
+  background-color: #4ed6ff;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ecdbff;
+  background-color: #4ed6ff;
+}
+.navbar-default .navbar-toggle {
+  border-color: #4ed6ff;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #4ed6ff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #fff;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ecdbff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+	font-weight: bold;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+	font-weight: bold;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+	font-weight: bold;
+    background-color: #4ed6ff;
+  }
+}
+
+#scrollBox {
+    width: 80%;
+	margin: 10px auto;
+	padding: 5px auto;
+    overflow: hidden;
+    background-color: #4ed6ff;
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 14px;
+	font-color: #fff;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+#scrollText {
+    white-space: nowrap;
+    margin: 0 0 0 300px !important;
+    width: 3000px;
+    text-align: left;
+}
+.multicolumnbox {
+   -moz-column-count: 2;
+   -webkit-column-count: 2;
+   column-count: 2;
+}
