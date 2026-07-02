@@ -2,261 +2,307 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>mini bambitch 画像掲示板</title>
+<meta name="viewport" content="width=960, maximum-scale=1.0, minimum-scale=0.27">
+<title>miniBAMBITCH上福岡店ご来店予告掲示板(Light)</title>
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" href="favicon.ico">
 <style>
 body{
-  margin:0;
-  background:#b7191d;
+  background:#b22222 url("banbi-new-z-big.png");
   color:#fff;
-  font-family:"MS PGothic","Osaka",sans-serif;
-  font-size:21px;
-  font-weight:bold;
-}
-a{color:#fff;text-decoration:underline}
-.header{
-  padding:42px 46px 72px;
-  line-height:1.85;
-}
-.sep{border-top:2px solid #cfcfcf}
-.area{
-  padding:18px 34px 28px;
-  border-bottom:2px solid #cfcfcf;
-}
-.meta{margin-bottom:26px}
-.chk{width:15px;height:15px;vertical-align:middle}
-.main-title{
-  color:#ffff00;
-  font-size:28px;
-}
-.green{color:#00ff00}
-.date{font-weight:normal}
-.formrow{margin:8px 0}
-label{
-  display:inline-block;
-  width:112px;
-}
-input,textarea{
-  font-family:inherit;
-  font-size:21px;
-  border:2px inset #ddd;
-}
-input[type="text"],input[type="password"]{
-  width:315px;
-  height:30px;
-}
-textarea{
-  width:560px;
-  height:105px;
-  vertical-align:top;
-}
-button{
-  font-family:inherit;
-  font-size:24px;
-  background:#eee;
-  color:#333;
-  border:2px outset #ddd;
-  padding:3px 12px;
-}
-.note{
-  margin-left:112px;
+  font-family:"MS UI Gothic","MS PGothic",Osaka,sans-serif;
   font-size:16px;
 }
-.parent-text{
-  margin-left:44px;
-  margin-bottom:24px;
-  line-height:1.8;
-}
-.res-wrap{
-  margin:16px 0;
-}
-.arrow{
-  font-size:28px;
-  display:inline-block;
-  width:58px;
-  text-align:right;
-}
-.replybox{
-  display:inline-block;
-  vertical-align:top;
-  background:#fff7fb;
-  color:#777;
-  min-width:820px;
-  padding:10px 28px 24px;
-}
-.reply-title{
-  color:red;
-  font-size:28px;
-}
-.reply-name{
-  color:#00cc00;
-}
-.reply-body{
-  margin:24px 0 0 62px;
-  line-height:1.6;
-}
-.reply-img{
-  max-width:210px;
-  max-height:160px;
-  float:left;
-  margin:0 24px 12px 0;
-}
-.delete{
-  padding:16px 0 48px;
-  border-bottom:2px solid #cfcfcf;
-}
-.delete input{width:125px}
-.nextbtn{margin:8px 0 0 22px}
-.pages{
-  padding:18px 10px;
-  border-bottom:2px solid #cfcfcf;
-  font-size:28px;
-}
-.current{color:#ffff00}
+a{color:#fff}
+input{background:#fff;font-size:16px;color:#606060}
+textarea{background:#fff;font-size:14px;color:#606060}
+select{background:#8B0000;font-size:18px;font-family:"MS UI Gothic";color:#fff}
+.logo{text-align:center}
+.logo img{vertical-align:middle}
+ul{margin-top:10px}
+.form-table td{background:#f7dce6;color:#801b40}
+.form-table font{color:#801b40}
+.nav{text-align:right}
+hr{border:0;border-top:1px solid #fff}
+.notice{font-size:13px}
+.article-title{font-size:18px;color:#f2ff00;font-weight:bold}
+.article-name{color:#00ff00;font-weight:bold}
+.reply-table td.reply-arrow{background:transparent;color:#fff;text-align:right;vertical-align:top;width:7%;white-space:nowrap}
+.reply-box{background:#fff2f7;color:#808080}
+.reply-title{font-size:18px;color:#ff0000;font-weight:bold}
+.reply-name{color:#00ff00;font-weight:bold}
+blockquote{margin-top:12px;margin-bottom:12px}
+.btn-row input{font-size:16px}
 </style>
 </head>
+
 <body>
 
-<div class="header">
-おつまみ等の持ち込みは自由なのでみんなで持ち寄ってお近づきのきっかけにどうぞ〜♪<br><br>
-埼玉県ふじみ野市上福岡1-12-18<br>
-0492654628
+<div class="logo">
+  <a href="https://minibambitch.bambitch.com/index.html"><img src="bbs-minilogo.png" width="450" height="143"></a>
+  <a href="https://www.instagram.com/mini_bambitch" target="_blank"><img src="insta-logo-w.png" width="71" height="71" style="margin:30px auto"></a>
 </div>
 
-<div class="sep"></div>
+<ul>
+  <h3>miniBAMBITCH上福岡店　ご来店予告掲示板</h3>
+  <li>ご来店予告の書き込みでドリンク1杯サービスです♪</li>
+  <li>おつまみ等の持ち込みは自由なのでみんなで持ち寄ってお近づきのきっかけにどうぞ〜♪</li>
+  <li>埼玉県ふじみ野市上福岡1-12-18　0492654628</li>
+</ul>
 
-<div class="area">
-<form id="form">
-  <div class="meta">
-    <input class="chk" type="checkbox">
-    <span class="main-title">これから</span>
-    <span class="green"> おかだ</span>
-    <span class="date"> [2026/07/02,01:11:55] No.976</span>
-    <a href="#">返信</a> <a href="#">(t)</a>
-  </div>
-
-  <div class="formrow"><label>お名前</label><input id="name" type="text" required> <button type="submit">書き込む</button></div>
-  <div class="formrow"><label>題　名</label><input id="title" type="text"></div>
-  <div class="formrow"><label>コメント</label><textarea id="message" required></textarea></div>
-  <div class="formrow"><label>削除キー</label><input id="delkey" type="password"> （管理者用）</div>
-  <div class="formrow"><label>画像ファイル</label><input id="image" type="file" accept="image/*"></div>
-  <div class="note">※20MBまで、GIF/JPG/PNG形式のみ、画像はサムネイル表示されます。</div>
+<form id="postForm" style="display:inline">
+<ul>
+<table id="uploadmain" class="form-table" border="0" cellspacing="1" cellpadding="0">
+<tr>
+  <td align="right"><font size="+0">おなまえ：</font></td>
+  <td colspan="2"><input type="text" id="name" size="30" maxlength="40"> <font size="+0">*必要</font></td>
+</tr>
+<tr>
+  <td align="right"><font size="+0">題名：</font></td>
+  <td colspan="2"><input type="text" id="subject" size="30" maxlength="60"> <font size="+0">*必要</font></td>
+</tr>
+<tr>
+  <td align="right"><font size="+0">本文：</font></td>
+  <td colspan="2"><textarea id="body" cols="56" rows="6" maxlength="10000" wrap="soft"></textarea><font size="+0">*必要</font></td>
+</tr>
+<tr>
+  <td align="right"><font size="+0">画像選択</font></td>
+  <td colspan="2"><input type="file" id="img" size="30" accept="image/*"> <font size="+0">*省略可</font></td>
+</tr>
+<tr>
+  <td align="right" nowrap><font size="+0">&nbsp;&nbsp;画像の題名</font></td>
+  <td colspan="2"><input type="text" id="imgtitle" size="30" maxlength="60"><font size="+0">*省略可</font></td>
+</tr>
+<tr>
+  <td></td>
+  <td><input type="submit" value=" 送信する "> <input type="reset" value="中止"></td>
+  <td align="center"></td>
+</tr>
+</table>
+</ul>
 </form>
+
+<div class="nav">
+<big>
+[ <a href="https://minibambitch.bambitch.com/index.html"><img src="top.png" width="80" height="40"></a> ]
+[ <a href="https://minibambitch.bambitch.com/access/access.html"><img src="accses.png" width="80" height="40"></a> ]
+[ <a href="tel:0492654628"><img src="TEL.png" width="80" height="40"></a> ]
+[ <a href="https://bambitch.com/oomiya.html"><img src="oomiyahonten.png" width="80" height="40"></a> ]
+[ <a href="https://bambitch-utsunomiya.com/index.html" target="_blank"><img src="utsunomiya-btn.png" width="80" height="40"></a> ]
+[ <a href="https://bambitchmaebashi.com/index.html" target="_blank"><img src="maebashi-btn.png" width="80" height="40"></a> ]
+[ <a href="https://snackdokudoku.com/index.html" target="_blank"><img src="doku-btn-bbs.png" width="80" height="40"></a> ]
+[ <a href="https://bambitch2390.blog.2nt.com" target="_blank"><img src="blog.png" width="80" height="40"></a> ]
+[ <a href="#"><img src="ADM.png" width="80" height="40"></a> ]
+&nbsp;&nbsp;&nbsp;
+</big>
 </div>
 
-<div class="area" id="thread"></div>
+<hr>
 
-<div class="delete">
-★管理者用削除（削除キーを入力）　
-<input type="password" value="・・・・"> <button>削除</button>
-　　　（<a href="#">★不用品を一番高く→買取価格.com♪</a>）　　　（<a href="#">★人気クラウド＆口コミ活用でサクサク検討→マンション検討.com♪</a>）
-<div class="nextbtn"><button>次の10件＞</button></div>
+<font size="-1">
+<ul>
+  <li>ご来店予告専用の掲示板です。</li>
+  <li>ご質問は<a href="../form-kmfkok/form.html"><font color="#F6FF00">「お問い合わせフォーム」</font></a>あるいは<a href="tel:0492654628"><font color="#F6FF00">「お電話」</font></a>にてお願いいたします。</li>
+  <li>個人を特定した、誹謗、中傷等の書き込みは禁止します。</li>
+  <li>他店舗や、他サイトへの勧誘行為、URLの貼り付け行為も禁止します。</li>
+  <li>メールアドレス、電話番号等、個人情報と思われる書き込みは禁止します。</li>
+  <li>宣伝、営業と思われる書き込みは削除します。</li>
+  <li>お客様に不安を与えるような内容や、掲示板に対するいたずら等禁止します。</li>
+  <li>注意事項を守れず、いたずら、中傷等の書き込みと思われるものは、<br>投稿者のサーバーに情報開示を求め、法的措置をとります。ご注意下さい。</li>
+</ul>
+<ul>
+  <li>新しい記事から１ページ<b> 10 </b>件毎に表示。最高<b>350</b>件の記事が記録され、それを超えると古い記事から削除されます</li>
+</ul>
+</font>
+
+<div align="right">
+<input type="checkbox"> <font size="+1">次回から説明省略(適用で反映)</font>
+<hr>
+<table border="1" cellspacing="2" cellpadding="1">
+<tr>
+<td width="8"></td>
+<td bgcolor="gray"><font size="-1" color="lightgreen">表示モード<br></font></td>
+<td width="8"></td>
+<td></td>
+<td align="center">
+<select style="font-size:16px">
+<option>管理者推奨に従う</option>
+<option>テキストのみ（軽い）</option>
+<option>アイコンサイズ</option>
+<option>横サイズ 固定</option>
+<option>大きいものだけ縮小</option>
+<option>原寸表示</option>
+<option>オート（おまかせ）</option>
+</select>
+<select style="font-size:16px">
+<option>横幅値 (推奨デバイス)</option>
+<option>960 (iPhone4/4S)</option>
+<option>1024 (XGA/iPad)</option>
+<option>1280</option>
+<option>device-width</option>
+<option>AUTO</option>
+</select>
+</td>
+<td><input type="button" value="適用" style="font-size:16px"></td>
+</tr>
+</table>
 </div>
 
-<div class="pages">
-ページ指定：[ <span class="current">1</span> /
-<a href="#">2</a> / <a href="#">3</a> / <a href="#">4</a> / <a href="#">5</a> /
-<a href="#">6</a> / <a href="#">7</a> / <a href="#">8</a> / <a href="#">9</a> /
-<a href="#">10</a> / <a href="#">11</a> / <a href="#">12</a> / <a href="#">13</a> /
-<a href="#">14</a> / <a href="#">15</a> / <a href="#">16</a> / <a href="#">17</a> / <a href="#">18</a> / ]
-</div>
+<hr>
+
+&nbsp;&nbsp;ページ指定：[ <a href="#">1</a> / <b>2</b> / <a href="#">3</a> / <a href="#">4</a> / <a href="#">5</a> / <a href="#">6</a> / <a href="#">7</a> / <a href="#">8</a> / <a href="#">9</a> / <a href="#">10</a> / <a href="#">11</a> / <a href="#">12</a> / <a href="#">13</a> / <a href="#">14</a> / <a href="#">15</a> / <a href="#">16</a> / <a href="#">17</a> / <a href="#">18</a> / ]<br>
+
+<form id="deleteForm" style="display:inline">
+<br clear="left" style="clear:left">
+<hr>
+
+<div id="posts"></div>
+
+<a href="#"> ( ★不用品を一番高く→買取価格.com ) </a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#"> ( ★人気クラウド＆口コミ活用でサクサク検討→マンション検討.com ) </a><br>
+
+<font size="-1">
+削除方法 <br>
+◆管理人： 削除対象の左欄をチェック（複数指定可）、専用パスワードを下欄に入力し、「削除」を押す <br>
+◆投稿者： 投稿に用いたパソコンでアクセスし、自分の記事の左欄をチェック、そのまま「削除」を押す（パスワード不要!!）<br>
+<input type="password" size="10" value="guest">
+</font>
+<input type="button" value="削除">
+</form>
+
+<br><br>
+
+<table border="0" cellspacing="6" cellpadding="4">
+<tr class="btn-row">
+<td><input type="button" value=" 先頭 "></td>
+<td><input type="button" value=" ＜前の10件 "></td>
+<td><input type="button" value="次の10 件＞"></td>
+</tr>
+</table>
+
+<hr>
+&nbsp;&nbsp;ページ指定：[ <a href="#">1</a> / <b>2</b> / <a href="#">3</a> / <a href="#">4</a> / <a href="#">5</a> / <a href="#">6</a> / <a href="#">7</a> / <a href="#">8</a> / <a href="#">9</a> / <a href="#">10</a> / <a href="#">11</a> / <a href="#">12</a> / <a href="#">13</a> / <a href="#">14</a> / <a href="#">15</a> / <a href="#">16</a> / <a href="#">17</a> / <a href="#">18</a> / ]<br>
+<hr>
+
+<div align="right"><b>FREE <a href="#">imgboard R6.1v4c</a>!!</b><br></div>
 
 <script>
-const KEY = 'mini-bambitch-red-full-v1';
+const STORAGE_KEY = "miniBambitchLightBoardV1";
+
+const defaultPosts = [
+  {subject:"いま", name:"みー", body:"きたよー", date:"2026/07/01,19:29:33", no:972},
+  {subject:"はじめて", name:"のんた＆いかい＆みさき", body:"来てみました！", date:"2026/07/01,02:41:19", no:967},
+  {subject:"少し", name:"たくひろ", body:"よりますねー！", date:"2026/06/30,23:48:37", no:965},
+  {subject:"はじめて", name:"えみか", body:"いきます！", date:"2026/06/30,22:01:44", no:962},
+  {subject:"これから", name:"るか", body:"遊びにイク！！", date:"2026/06/30,22:01:10", no:961},
+  {subject:"これから", name:"ひろみ", body:"いきます！", date:"2026/06/30,21:18:13", no:959},
+  {subject:"今から", name:"板尾", body:"少し寄ります", date:"2026/06/30,21:08:24", no:957},
+  {subject:"ちょっとだけ", name:"だーはら", body:"寄ります！", date:"2026/06/30,03:58:55", no:954},
+  {subject:"宇都宮から", name:"とも", body:"来てみました！", date:"2026/06/29,23:27:51", no:952},
+  {subject:"30分後くらいに", name:"ひろみ", body:"行きますー", date:"2026/06/29,22:42:09", no:949}
+];
 
 function esc(s){
-  return String(s || '').replace(/[&<>"']/g, m => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
-  }[m]));
+  return String(s || "").replace(/[&<>"']/g, function(m){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m];
+  });
 }
 
 function loadPosts(){
-  const saved = JSON.parse(localStorage.getItem(KEY) || '[]');
-  if(saved.length) return saved;
-
-  return [{
-    title:'ありがとうございます♪',
-    name:'★mini bambitch★',
-    date:'2026/07/02,01:12:26',
-    no:977,
-    message:'来店予告ありがとうございます♪\nぜひぜひお越し下さい☆\nスタッフ一同心よりお待ちしております♪',
-    image:''
-  }];
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+  return saved || defaultPosts;
 }
 
 function savePosts(posts){
-  localStorage.setItem(KEY, JSON.stringify(posts));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
 }
 
-function render(){
+function replyNo(no){ return Number(no) + 1; }
+
+function renderPosts(){
   const posts = loadPosts();
+  const html = posts.map(function(p, idx){
+    const repNo = replyNo(p.no);
+    return `
+<input type="checkbox">
+<font size="+1" color="#f2ff00"><b>${esc(p.subject)}</b></font>
 
-  document.getElementById('thread').innerHTML = `
-    <div class="meta">
-      <input class="chk" type="checkbox">
-      <span class="main-title">これから</span>
-      <span class="green"> おかだ</span>
-      <span class="date"> [2026/07/02,01:11:55] No.976</span>
-      <a href="#">返信</a> <a href="#">(t)</a>
-    </div>
+<font color="#00FF00"><b> ${esc(p.name)} </b></font>
+[${esc(p.date)}] No.${esc(p.no)} <a href="#">返信</a> (<a href="#" target="twitter01">t</a>)
 
-    <div class="parent-text">少し寄ります！</div>
+<blockquote>
+  ${esc(p.body).replace(/\n/g, "<br>")}
+  ${p.image ? `<br><br><img src="${p.image}" style="max-width:220px;max-height:180px">` : ""}
+</blockquote>
 
-    ${posts.map(p => `
-      <div class="res-wrap">
-        <span class="arrow">&gt;&gt;</span>
-        <div class="replybox">
-          <input class="chk" type="checkbox">
-          <span class="reply-title">${esc(p.title || '無題')}</span>
-          <span> 名前：</span>
-          <span class="reply-name">${esc(p.name)}</span>
-          <span class="date"> [${esc(p.date)}] No.${esc(p.no)}</span>
+<table class="reply-table" border="0">
+<tr>
+<td class="reply-arrow">&gt;&gt;</td>
+<td class="reply-box">
+<input type="checkbox">
+<font color="#808080">
+<font size="+1" color="#FF0000"><b>ありがとうございます♪</b></font>
+ 名前：<font color="#00FF00"><b> ★mini bambitch★ </b></font>
+[${esc(p.replyDate || p.date)}] No.${repNo}
 
-          <div class="reply-body">
-            ${p.image ? `<img class="reply-img" src="${p.image}">` : ''}
-            ${esc(p.message).replace(/\n/g, '<br>')}
-            <div style="clear:both"></div>
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  `;
+<blockquote>
+  来店予告ありがとうございます♪<br>
+  ぜひぜひお越し下さい☆<br>
+  スタッフ一同心よりお待ちしております♪<br>
+</blockquote>
+</font>
+</td>
+</tr>
+</table>
+<br clear="left" style="clear:left">
+<hr>`;
+  }).join("");
+
+  document.getElementById("posts").innerHTML = html;
 }
 
-document.getElementById('form').addEventListener('submit', async e => {
+document.getElementById("postForm").addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const file = document.getElementById('image').files[0];
-  let image = '';
+  const name = document.getElementById("name").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const body = document.getElementById("body").value.trim();
+  const file = document.getElementById("img").files[0];
 
+  if(!name || !subject || !body){
+    alert("おなまえ・題名・本文を入力してください");
+    return;
+  }
+
+  let image = "";
   if(file){
-    image = await new Promise(resolve => {
+    image = await new Promise(function(resolve){
       const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
+      reader.onload = function(){ resolve(reader.result); };
       reader.readAsDataURL(file);
     });
   }
 
   const posts = loadPosts();
+  const maxNo = posts.reduce((m,p)=>Math.max(m, Number(p.no)||0), 973);
 
-  posts.push({
-    title:document.getElementById('title').value || '無題',
-    name:document.getElementById('name').value,
-    message:document.getElementById('message').value,
-    image:image,
-    date:new Date().toLocaleString('ja-JP'),
-    no:977 + posts.length
+  posts.unshift({
+    subject,
+    name,
+    body,
+    image,
+    date: new Date().toLocaleString("ja-JP").replace(/\//g,"/"),
+    no: maxNo + 2,
+    replyDate: new Date().toLocaleString("ja-JP").replace(/\//g,"/")
   });
 
-  savePosts(posts);
+  savePosts(posts.slice(0, 350));
   e.target.reset();
-  render();
+  renderPosts();
 });
 
-render();
+renderPosts();
 </script>
 
 </body>
