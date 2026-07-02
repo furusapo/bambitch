@@ -4,88 +4,260 @@
 <meta charset="UTF-8">
 <title>mini bambitch 画像掲示板</title>
 <style>
-body{margin:0;background:#b8191d;color:#fff;font-family:"MS PGothic","Osaka",sans-serif;font-size:22px;font-weight:bold}
+body{
+  margin:0;
+  background:#b7191d;
+  color:#fff;
+  font-family:"MS PGothic","Osaka",sans-serif;
+  font-size:21px;
+  font-weight:bold;
+}
 a{color:#fff;text-decoration:underline}
-.header{padding:40px 46px 72px;line-height:1.8}
-hr{border:0;border-top:2px solid #ddd;margin:0}
-.formarea,.thread,.deletearea,.pages{border-bottom:2px solid #ddd;padding:18px 34px}
-.meta{margin-bottom:24px}
-.title{color:#ffff00;font-size:28px}
-.name{color:#00ff00}
+.header{
+  padding:42px 46px 72px;
+  line-height:1.85;
+}
+.sep{border-top:2px solid #cfcfcf}
+.area{
+  padding:18px 34px 28px;
+  border-bottom:2px solid #cfcfcf;
+}
+.meta{margin-bottom:26px}
+.chk{width:15px;height:15px;vertical-align:middle}
+.main-title{
+  color:#ffff00;
+  font-size:28px;
+}
+.green{color:#00ff00}
 .date{font-weight:normal}
-label{display:inline-block;width:120px}
-input,textarea{font-size:22px;font-family:inherit;border:2px inset #ddd}
-input[type=text],input[type=password]{width:320px;height:30px}
-textarea{width:560px;height:105px;vertical-align:top}
-button{font-size:24px;font-family:inherit;border:2px outset #ddd;background:#eee;color:#333;padding:4px 12px}
 .formrow{margin:8px 0}
-.reply{margin-left:44px;line-height:1.8}
-.replybox{display:inline-block;background:#fff7fb;color:#777;padding:12px 28px 24px;margin:16px 0 0 28px;min-width:760px}
-.rtitle{color:red;font-size:28px}
-.rname{color:#00cc00}
-.replybody{margin:22px 0 0 62px;line-height:1.6}
-.pages{font-size:28px}
+label{
+  display:inline-block;
+  width:112px;
+}
+input,textarea{
+  font-family:inherit;
+  font-size:21px;
+  border:2px inset #ddd;
+}
+input[type="text"],input[type="password"]{
+  width:315px;
+  height:30px;
+}
+textarea{
+  width:560px;
+  height:105px;
+  vertical-align:top;
+}
+button{
+  font-family:inherit;
+  font-size:24px;
+  background:#eee;
+  color:#333;
+  border:2px outset #ddd;
+  padding:3px 12px;
+}
+.note{
+  margin-left:112px;
+  font-size:16px;
+}
+.parent-text{
+  margin-left:44px;
+  margin-bottom:24px;
+  line-height:1.8;
+}
+.res-wrap{
+  margin:16px 0;
+}
+.arrow{
+  font-size:28px;
+  display:inline-block;
+  width:58px;
+  text-align:right;
+}
+.replybox{
+  display:inline-block;
+  vertical-align:top;
+  background:#fff7fb;
+  color:#777;
+  min-width:820px;
+  padding:10px 28px 24px;
+}
+.reply-title{
+  color:red;
+  font-size:28px;
+}
+.reply-name{
+  color:#00cc00;
+}
+.reply-body{
+  margin:24px 0 0 62px;
+  line-height:1.6;
+}
+.reply-img{
+  max-width:210px;
+  max-height:160px;
+  float:left;
+  margin:0 24px 12px 0;
+}
+.delete{
+  padding:16px 0 48px;
+  border-bottom:2px solid #cfcfcf;
+}
+.delete input{width:125px}
+.nextbtn{margin:8px 0 0 22px}
+.pages{
+  padding:18px 10px;
+  border-bottom:2px solid #cfcfcf;
+  font-size:28px;
+}
 .current{color:#ffff00}
 </style>
 </head>
 <body>
+
 <div class="header">
 おつまみ等の持ち込みは自由なのでみんなで持ち寄ってお近づきのきっかけにどうぞ〜♪<br><br>
 埼玉県ふじみ野市上福岡1-12-18<br>
 0492654628
 </div>
-<hr>
 
-<div class="formarea">
+<div class="sep"></div>
+
+<div class="area">
 <form id="form">
-<div class="meta"><input type="checkbox"> <span class="title">これから</span> <span class="name">おかだ</span> <span class="date">[2026/07/02,01:11:55] No.976</span> <a href="#">返信</a> <a href="#">(t)</a></div>
-<div class="formrow"><label>お名前</label><input id="name" type="text" required> <button type="submit">書き込む</button></div>
-<div class="formrow"><label>題　名</label><input id="title" type="text"></div>
-<div class="formrow"><label>コメント</label><textarea id="message" required></textarea></div>
-<div class="formrow"><label>削除キー</label><input id="delkey" type="password"> （管理者用）</div>
-<div class="formrow"><label>画像ファイル</label><input id="image" type="file" accept="image/*"></div>
-<div style="margin-left:120px;font-size:16px">※20MBまで、GIF/JPG/PNG形式のみ、画像はサムネイル表示されます。</div>
+  <div class="meta">
+    <input class="chk" type="checkbox">
+    <span class="main-title">これから</span>
+    <span class="green"> おかだ</span>
+    <span class="date"> [2026/07/02,01:11:55] No.976</span>
+    <a href="#">返信</a> <a href="#">(t)</a>
+  </div>
+
+  <div class="formrow"><label>お名前</label><input id="name" type="text" required> <button type="submit">書き込む</button></div>
+  <div class="formrow"><label>題　名</label><input id="title" type="text"></div>
+  <div class="formrow"><label>コメント</label><textarea id="message" required></textarea></div>
+  <div class="formrow"><label>削除キー</label><input id="delkey" type="password"> （管理者用）</div>
+  <div class="formrow"><label>画像ファイル</label><input id="image" type="file" accept="image/*"></div>
+  <div class="note">※20MBまで、GIF/JPG/PNG形式のみ、画像はサムネイル表示されます。</div>
 </form>
 </div>
 
-<div id="posts"></div>
+<div class="area" id="thread"></div>
 
-<div class="deletearea">
-★管理者用削除（削除キーを入力） <input type="password" value="・・・・"> <button>削除</button>
-　（<a href="#">★不用品を一番高く→買取価格.com♪</a>）　（<a href="#">★人気クラウド＆口コミ活用でサクサク検討→マンション検討.com♪</a>）
-<br><br><button>次の10件＞</button>
+<div class="delete">
+★管理者用削除（削除キーを入力）　
+<input type="password" value="・・・・"> <button>削除</button>
+　　　（<a href="#">★不用品を一番高く→買取価格.com♪</a>）　　　（<a href="#">★人気クラウド＆口コミ活用でサクサク検討→マンション検討.com♪</a>）
+<div class="nextbtn"><button>次の10件＞</button></div>
 </div>
 
 <div class="pages">
-ページ指定：[ <span class="current">1</span> / <a href="#">2</a> / <a href="#">3</a> / <a href="#">4</a> / <a href="#">5</a> / <a href="#">6</a> / <a href="#">7</a> / <a href="#">8</a> / <a href="#">9</a> / <a href="#">10</a> / <a href="#">11</a> / <a href="#">12</a> / <a href="#">13</a> / <a href="#">14</a> / <a href="#">15</a> / <a href="#">16</a> / <a href="#">17</a> / <a href="#">18</a> / ]
+ページ指定：[ <span class="current">1</span> /
+<a href="#">2</a> / <a href="#">3</a> / <a href="#">4</a> / <a href="#">5</a> /
+<a href="#">6</a> / <a href="#">7</a> / <a href="#">8</a> / <a href="#">9</a> /
+<a href="#">10</a> / <a href="#">11</a> / <a href="#">12</a> / <a href="#">13</a> /
+<a href="#">14</a> / <a href="#">15</a> / <a href="#">16</a> / <a href="#">17</a> / <a href="#">18</a> / ]
 </div>
 
 <script>
-const KEY='bambitch-red-board-posts-v2';
+const KEY = 'mini-bambitch-red-full-v1';
+
+function esc(s){
+  return String(s || '').replace(/[&<>"']/g, m => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[m]));
+}
+
 function loadPosts(){
-  const saved=JSON.parse(localStorage.getItem(KEY)||'[]');
-  if(saved.length)return saved;
-  return [{name:'★mini bambitch★',title:'ありがとうございます♪',message:'来店予告ありがとうございます♪\nぜひぜひお越し下さい☆\nスタッフ一同心よりお待ちしております♪',date:'2026/07/02,01:12:26',no:977,image:''}];
+  const saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+  if(saved.length) return saved;
+
+  return [{
+    title:'ありがとうございます♪',
+    name:'★mini bambitch★',
+    date:'2026/07/02,01:12:26',
+    no:977,
+    message:'来店予告ありがとうございます♪\nぜひぜひお越し下さい☆\nスタッフ一同心よりお待ちしております♪',
+    image:''
+  }];
 }
-function savePosts(posts){localStorage.setItem(KEY,JSON.stringify(posts))}
-function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+
+function savePosts(posts){
+  localStorage.setItem(KEY, JSON.stringify(posts));
+}
+
 function render(){
- const posts=loadPosts();
- document.getElementById('posts').innerHTML=`<div class="thread">
- <div class="meta"><input type="checkbox"> <span class="title">これから</span> <span class="name">おかだ</span> <span class="date">[2026/07/02,01:11:55] No.976</span> <a href="#">返信</a> <a href="#">(t)</a></div>
- <div class="reply">少し寄ります！</div>
- ${posts.map(p=>`<div><span style="font-size:28px">&gt;&gt;</span><div class="replybox"><input type="checkbox"> <span class="rtitle">${esc(p.title)}</span> 名前： <span class="rname">${esc(p.name)}</span> <span>[${esc(p.date)}] No.${p.no}</span><div class="replybody">${p.image?`<img src="${p.image}" style="max-width:210px;max-height:160px;float:left;margin:0 24px 12px 0">`:''}${esc(p.message).replace(/\n/g,'<br>')}<div style="clear:both"></div></div></div></div>`).join('')}
- </div>`;
+  const posts = loadPosts();
+
+  document.getElementById('thread').innerHTML = `
+    <div class="meta">
+      <input class="chk" type="checkbox">
+      <span class="main-title">これから</span>
+      <span class="green"> おかだ</span>
+      <span class="date"> [2026/07/02,01:11:55] No.976</span>
+      <a href="#">返信</a> <a href="#">(t)</a>
+    </div>
+
+    <div class="parent-text">少し寄ります！</div>
+
+    ${posts.map(p => `
+      <div class="res-wrap">
+        <span class="arrow">&gt;&gt;</span>
+        <div class="replybox">
+          <input class="chk" type="checkbox">
+          <span class="reply-title">${esc(p.title || '無題')}</span>
+          <span> 名前：</span>
+          <span class="reply-name">${esc(p.name)}</span>
+          <span class="date"> [${esc(p.date)}] No.${esc(p.no)}</span>
+
+          <div class="reply-body">
+            ${p.image ? `<img class="reply-img" src="${p.image}">` : ''}
+            ${esc(p.message).replace(/\n/g, '<br>')}
+            <div style="clear:both"></div>
+          </div>
+        </div>
+      </div>
+    `).join('')}
+  `;
 }
-document.getElementById('form').addEventListener('submit',async e=>{
- e.preventDefault();
- const file=document.getElementById('image').files[0];let image='';
- if(file){image=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(file)})}
- const posts=loadPosts();
- posts.push({name:name.value,title:title.value||'無題',message:message.value,date:new Date().toLocaleString('ja-JP'),image,no:977+posts.length});
- savePosts(posts);e.target.reset();render();
+
+document.getElementById('form').addEventListener('submit', async e => {
+  e.preventDefault();
+
+  const file = document.getElementById('image').files[0];
+  let image = '';
+
+  if(file){
+    image = await new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  const posts = loadPosts();
+
+  posts.push({
+    title:document.getElementById('title').value || '無題',
+    name:document.getElementById('name').value,
+    message:document.getElementById('message').value,
+    image:image,
+    date:new Date().toLocaleString('ja-JP'),
+    no:977 + posts.length
+  });
+
+  savePosts(posts);
+  e.target.reset();
+  render();
 });
+
 render();
 </script>
+
 </body>
 </html>
