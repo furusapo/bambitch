@@ -26,11 +26,11 @@ ul{margin-top:10px}
 hr{border:0;border-top:1px solid #e38ba2}
 .notice{font-size:13px}
 .article-title{font-size:18px;color:#D81B60;font-weight:bold}
-.article-name{color:#00ff00;font-weight:bold}
+.article-name{color:#008A45;font-weight:bold}
 .reply-table td.reply-arrow{background:transparent;color:#5a2a2a;text-align:right;vertical-align:top;width:7%;white-space:nowrap}
 .reply-box{background:#FFF8FB;color:#808080}
 .reply-title{font-size:18px;color:#ff0000;font-weight:bold}
-.reply-name{color:#00ff00;font-weight:bold}
+.reply-name{color:#008A45;font-weight:bold}
 blockquote{margin-top:12px;margin-bottom:12px}
 .btn-row input{font-size:16px}
 </style>
@@ -102,7 +102,7 @@ blockquote{margin-top:12px;margin-bottom:12px}
 <font size="-1">
 <ul>
   <li>ご来店予告専用の掲示板です。</li>
-  <li>ご質問は<a href="../form-kmfkok/form.html"><font color="#F6FF00">「お問い合わせフォーム」</font></a>あるいは<a href="tel:0492654628"><font color="#F6FF00">「お電話」</font></a>にてお願いいたします。</li>
+  <li>ご質問は<a href="../form-kmfkok/form.html"><font color="#C2185B">「お問い合わせフォーム」</font></a>あるいは<a href="tel:0492654628"><font color="#C2185B">「お電話」</font></a>にてお願いいたします。</li>
   <li>個人を特定した、誹謗、中傷等の書き込みは禁止します。</li>
   <li>他店舗や、他サイトへの勧誘行為、URLの貼り付け行為も禁止します。</li>
   <li>メールアドレス、電話番号等、個人情報と思われる書き込みは禁止します。</li>
@@ -121,7 +121,7 @@ blockquote{margin-top:12px;margin-bottom:12px}
 <table border="1" cellspacing="2" cellpadding="1">
 <tr>
 <td width="8"></td>
-<td bgcolor="gray"><font size="-1" color="lightgreen">表示モード<br></font></td>
+<td bgcolor="gray"><font size="-1" color="#008A45">表示モード<br></font></td>
 <td width="8"></td>
 <td></td>
 <td align="center">
@@ -228,7 +228,7 @@ function renderPosts(){
 <input type="checkbox">
 <font size="+1" color="#D81B60"><b>${esc(p.subject)}</b></font>
 
-<font color="#00FF00"><b> ${esc(p.name)} </b></font>
+<font color="#008A45"><b> ${esc(p.name)} </b></font>
 [${esc(p.date)}] No.${esc(p.no)} <a href="#">返信</a> (<a href="#" target="twitter01">t</a>)
 
 <blockquote>
@@ -243,7 +243,7 @@ function renderPosts(){
 <input type="checkbox">
 <font color="#808080">
 <font size="+1" color="#FF0000"><b>ありがとうございます♪</b></font>
- 名前：<font color="#00FF00"><b> ★mini bambitch★ </b></font>
+ 名前：<font color="#008A45"><b> ★mini bambitch★ </b></font>
 [${esc(p.replyDate || p.date)}] No.${repNo}
 
 <blockquote>
