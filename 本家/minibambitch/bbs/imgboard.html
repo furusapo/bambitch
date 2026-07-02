@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>MINI BAMBitch 画像掲示板</title>
+<style>
+body{background:#fff;color:#333;font-size:13px;font-family:Verdana,'MS PGothic',sans-serif}
+.wrap{max-width:900px;margin:20px auto}
+h1{font-size:20px;text-align:center;color:#cc6699}
+.menu{text-align:center;margin:10px}
+.box{border:1px solid #d8a5c0;background:#fff7fb;padding:12px;margin:12px 0}
+table{width:100%;border-collapse:collapse}
+td{padding:5px}
+input,textarea{font-size:13px;width:100%;box-sizing:border-box}
+textarea{height:90px}
+button{background:#cc6699;color:#fff;border:0;padding:7px 18px;cursor:pointer}
+.post{border-top:1px solid #d8a5c0;padding:14px 0}
+.name{color:#cc6699;font-weight:bold}
+.date{color:#777;font-size:11px}
+.msg{margin:8px 0;white-space:pre-wrap}
+.thumb{max-width:220px;max-height:220px;border:1px solid #ccc;padding:3px;background:#fff}
+.small{text-align:center;color:#777;font-size:11px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>MINI BAMBitch 画像掲示板</h1>
+  <div class="menu">[ 投稿する ] [ リロード ] [ 管理 ]</div>
+
+  <div class="box">
+    <form id="form">
+      <table>
+        <tr><td width="90">お名前</td><td><input id="name" required></td></tr>
+        <tr><td>題名</td><td><input id="title"></td></tr>
+        <tr><td>コメント</td><td><textarea id="message" required></textarea></td></tr>
+        <tr><td>画像</td><td><input id="image" type="file" accept="image/*"></td></tr>
+        <tr><td></td><td><button type="submit">投稿する</button></td></tr>
+      </table>
+    </form>
+  </div>
+
+  <div id="posts"></div>
+  <div class="small">HTML + JavaScript版 / 投稿はこのブラウザ内に保存されます</div>
+</div>
+
+<script>
+const KEY='bambitch-mini-imgboard-posts';
+
+function loadPosts(){
+  return JSON.parse(localStorage.getItem(KEY)||'[]');
+}
+
+function savePosts(posts){
+  localStorage.setItem(KEY, JSON.stringify(posts));
+}
+
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g, s => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[s]));
+}
+
+function render(){
+  const posts=loadPosts();
+  const area=document.getElementById('posts');
+  area.innerHTML = posts.length ? posts.map((p,i)=>`
+    <div class="post">
+      <div>
+        <span class="name">${escapeHtml(p.name)}</span>
+        <span>：${escapeHtml(p.title||'無題')}</span>
+        <span class="date"> ${escapeHtml(p.date)}</span>
+      </div>
+      <div class="msg">${escapeHtml(p.message)}</div>
+      ${p.image ? `<div><img class="thumb" src="${p.image}"></div>` : ''}
+      <div class="date">No.${posts.length-i}</div>
+    </div>
+  `).join('') : '<div class="box">まだ投稿はありません。</div>';
+}
+
+document.getElementById('form').addEventListener('submit', async e=>{
+  e.preventDefault();
+
+  const file=document.getElementById('image').files[0];
+  let image='';
+
+  if(file){
+    image = await new Promise(resolve=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(reader.result);
+      reader.readAsDataURL(file);
+    });
+  }
+
+  const posts=loadPosts();
+  posts.unshift({
+    name:document.getElementById('name').value,
+    title:document.getElementById('title').value,
+    message:document.getElementById('message').value,
+    image,
+    date:new Date().toLocaleString('ja-JP')
+  });
+
+  savePosts(posts);
+  e.target.reset();
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
