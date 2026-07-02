@@ -9,26 +9,26 @@
 <style>
 body{
   background:#ffeaf3;
-  color:#fff;
+  color:#5a2a2a;
   font-family:"MS UI Gothic","MS PGothic",Osaka,sans-serif;
   font-size:16px;
 }
-a{color:#fff}
-input{background:#fff;font-size:16px;color:#606060}
-textarea{background:#fff;font-size:14px;color:#606060}
-select{background:#8B0000;font-size:18px;font-family:"MS UI Gothic";color:#fff}
+a{color:#5a2a2a}
+input{background:#fff;font-size:16px;color:#5a2a2a}
+textarea{background:#fff;font-size:14px;color:#5a2a2a}
+select{background:#8B0000;font-size:18px;font-family:"MS UI Gothic";color:#5a2a2a}
 .logo{text-align:center}
 .logo img{vertical-align:middle}
 ul{margin-top:10px}
 .form-table td{background:#f7dce6;color:#801b40}
 .form-table font{color:#801b40}
 .nav{text-align:right}
-hr{border:0;border-top:1px solid #fff}
+hr{border:0;border-top:1px solid #e38ba2}
 .notice{font-size:13px}
-.article-title{font-size:18px;color:#f2ff00;font-weight:bold}
+.article-title{font-size:18px;color:#D81B60;font-weight:bold}
 .article-name{color:#00ff00;font-weight:bold}
-.reply-table td.reply-arrow{background:transparent;color:#fff;text-align:right;vertical-align:top;width:7%;white-space:nowrap}
-.reply-box{background:#fff2f7;color:#808080}
+.reply-table td.reply-arrow{background:transparent;color:#5a2a2a;text-align:right;vertical-align:top;width:7%;white-space:nowrap}
+.reply-box{background:#FFF8FB;color:#808080}
 .reply-title{font-size:18px;color:#ff0000;font-weight:bold}
 .reply-name{color:#00ff00;font-weight:bold}
 blockquote{margin-top:12px;margin-bottom:12px}
@@ -226,7 +226,7 @@ function renderPosts(){
     const repNo = replyNo(p.no);
     return `
 <input type="checkbox">
-<font size="+1" color="#f2ff00"><b>${esc(p.subject)}</b></font>
+<font size="+1" color="#D81B60"><b>${esc(p.subject)}</b></font>
 
 <font color="#00FF00"><b> ${esc(p.name)} </b></font>
 [${esc(p.date)}] No.${esc(p.no)} <a href="#">返信</a> (<a href="#" target="twitter01">t</a>)
