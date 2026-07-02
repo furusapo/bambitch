@@ -4,43 +4,170 @@
 <meta charset="UTF-8">
 <title>MINI BAMBitch 画像掲示板</title>
 <style>
-body{background:#fff;color:#333;font-size:13px;font-family:Verdana,'MS PGothic',sans-serif}
-.wrap{max-width:900px;margin:20px auto}
-h1{font-size:20px;text-align:center;color:#cc6699}
-.menu{text-align:center;margin:10px}
-.box{border:1px solid #d8a5c0;background:#fff7fb;padding:12px;margin:12px 0}
+body{
+  margin:0;
+  background:#f6f1ff;
+  color:#333;
+  font-size:13px;
+  font-family:"MS PGothic","Osaka",Verdana,sans-serif;
+}
+a{color:#800080;text-decoration:underline}
+.wrap{max-width:880px;margin:18px auto}
+.header{
+  text-align:center;
+  border:1px solid #c9b6e4;
+  background:#fff;
+  padding:14px 8px;
+}
+h1{
+  margin:0;
+  color:#cc3399;
+  font-size:22px;
+  letter-spacing:1px;
+}
+.sub{font-size:12px;color:#666;margin-top:6px}
+.nav{
+  text-align:center;
+  margin:10px 0;
+  color:#800080;
+}
+.formbox{
+  border:1px solid #c9b6e4;
+  background:#fff8ff;
+  padding:10px;
+  margin:12px 0;
+}
+.form-title{
+  background:#e8d8f5;
+  border:1px solid #c9b6e4;
+  padding:5px 8px;
+  font-weight:bold;
+  color:#663366;
+  margin-bottom:8px;
+}
 table{width:100%;border-collapse:collapse}
-td{padding:5px}
-input,textarea{font-size:13px;width:100%;box-sizing:border-box}
+td{
+  border:1px solid #e0cfea;
+  padding:5px;
+  background:#fff;
+}
+td.label{
+  width:95px;
+  background:#f0e6fa;
+  color:#663366;
+  text-align:center;
+}
+input,textarea{
+  width:100%;
+  box-sizing:border-box;
+  font-size:13px;
+  font-family:inherit;
+}
 textarea{height:90px}
-button{background:#cc6699;color:#fff;border:0;padding:7px 18px;cursor:pointer}
-.post{border-top:1px solid #d8a5c0;padding:14px 0}
-.name{color:#cc6699;font-weight:bold}
-.date{color:#777;font-size:11px}
-.msg{margin:8px 0;white-space:pre-wrap}
-.thumb{max-width:220px;max-height:220px;border:1px solid #ccc;padding:3px;background:#fff}
-.small{text-align:center;color:#777;font-size:11px}
+button{
+  font-size:13px;
+  border:1px solid #996699;
+  background:#fff;
+  color:#663366;
+  padding:4px 18px;
+  cursor:pointer;
+}
+button:hover{background:#f0e6fa}
+.post{
+  border:1px solid #c9b6e4;
+  background:#fff;
+  margin:12px 0;
+}
+.post-head{
+  background:#e8d8f5;
+  border-bottom:1px solid #c9b6e4;
+  padding:6px 8px;
+}
+.post-title{
+  color:#cc3399;
+  font-weight:bold;
+}
+.post-name{
+  color:#008000;
+  font-weight:bold;
+}
+.post-date{
+  color:#666;
+  font-size:11px;
+}
+.post-body{
+  padding:10px;
+  overflow:hidden;
+}
+.thumb{
+  float:left;
+  max-width:220px;
+  max-height:220px;
+  margin:0 12px 8px 0;
+  border:1px solid #bbb;
+  padding:4px;
+  background:#fff;
+}
+.msg{
+  white-space:pre-wrap;
+  line-height:1.6;
+}
+.post-foot{
+  clear:both;
+  border-top:1px dotted #c9b6e4;
+  padding:5px 8px;
+  font-size:11px;
+  color:#777;
+  text-align:right;
+}
+.empty{
+  border:1px solid #c9b6e4;
+  background:#fff;
+  padding:14px;
+  text-align:center;
+}
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:11px;
+  margin:18px 0;
+}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>MINI BAMBitch 画像掲示板</h1>
-  <div class="menu">[ 投稿する ] [ リロード ] [ 管理 ]</div>
 
-  <div class="box">
+  <div class="header">
+    <h1>MINI BAMBitch 画像掲示板</h1>
+    <div class="sub">画像投稿・コメント投稿はこちらから</div>
+  </div>
+
+  <div class="nav">
+    [ <a href="#formbox">投稿する</a> ]　
+    [ <a href="javascript:location.reload()">リロード</a> ]　
+    [ 管理 ]
+  </div>
+
+  <div class="formbox" id="formbox">
+    <div class="form-title">投稿フォーム</div>
     <form id="form">
       <table>
-        <tr><td width="90">お名前</td><td><input id="name" required></td></tr>
-        <tr><td>題名</td><td><input id="title"></td></tr>
-        <tr><td>コメント</td><td><textarea id="message" required></textarea></td></tr>
-        <tr><td>画像</td><td><input id="image" type="file" accept="image/*"></td></tr>
-        <tr><td></td><td><button type="submit">投稿する</button></td></tr>
+        <tr><td class="label">お名前</td><td><input id="name" required></td></tr>
+        <tr><td class="label">題名</td><td><input id="title"></td></tr>
+        <tr><td class="label">コメント</td><td><textarea id="message" required></textarea></td></tr>
+        <tr><td class="label">添付画像</td><td><input id="image" type="file" accept="image/*"></td></tr>
+        <tr><td class="label">削除キー</td><td><input id="delkey" type="password" placeholder="あとで削除機能を付ける用"></td></tr>
+        <tr><td class="label"></td><td><button type="submit">投稿する</button> <button type="reset">リセット</button></td></tr>
       </table>
     </form>
   </div>
 
   <div id="posts"></div>
-  <div class="small">HTML + JavaScript版 / 投稿はこのブラウザ内に保存されます</div>
+
+  <div class="footer">
+    MINI BAMBitch Image Board / HTML + JavaScript
+  </div>
+
 </div>
 
 <script>
@@ -63,18 +190,31 @@ function escapeHtml(str){
 function render(){
   const posts=loadPosts();
   const area=document.getElementById('posts');
-  area.innerHTML = posts.length ? posts.map((p,i)=>`
-    <div class="post">
-      <div>
-        <span class="name">${escapeHtml(p.name)}</span>
-        <span>：${escapeHtml(p.title||'無題')}</span>
-        <span class="date"> ${escapeHtml(p.date)}</span>
+
+  if(!posts.length){
+    area.innerHTML='<div class="empty">まだ投稿はありません。</div>';
+    return;
+  }
+
+  area.innerHTML = posts.map((p,i)=>{
+    const no = posts.length - i;
+    return `
+      <div class="post">
+        <div class="post-head">
+          <span class="post-title">${escapeHtml(p.title||'無題')}</span>
+          投稿者：<span class="post-name">${escapeHtml(p.name)}</span>
+          <span class="post-date">${escapeHtml(p.date)}</span>
+        </div>
+        <div class="post-body">
+          ${p.image ? `<img class="thumb" src="${p.image}">` : ''}
+          <div class="msg">${escapeHtml(p.message)}</div>
+        </div>
+        <div class="post-foot">
+          No.${no}　[ 返信 ] [ 削除 ]
+        </div>
       </div>
-      <div class="msg">${escapeHtml(p.message)}</div>
-      ${p.image ? `<div><img class="thumb" src="${p.image}"></div>` : ''}
-      <div class="date">No.${posts.length-i}</div>
-    </div>
-  `).join('') : '<div class="box">まだ投稿はありません。</div>';
+    `;
+  }).join('');
 }
 
 document.getElementById('form').addEventListener('submit', async e=>{
