@@ -73,6 +73,50 @@ img {
   }
 }
 
+
+/* BAMBITCH smartphone layout fix */
+@media screen and (max-width: 767px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body > .container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  #bambitch-youtube {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px !important;
+    box-sizing: border-box;
+  }
+
+  #bambitch-youtube > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+
+  #bambitch-youtube a {
+    flex: none !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    min-width: 0 !important;
+  }
+
+  #bambitch-youtube img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
 </style>
 
 
